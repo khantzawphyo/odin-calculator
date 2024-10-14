@@ -1,0 +1,177 @@
+/* Global Reset */
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Root Styling */
+html {
+    font-size: 150%; /* Equivalent to 24px */
+    font-weight: 300;
+    font-family: 'Varela Round', 'Segoe UI', Tahoma, Geneva, sans-serif;
+    line-height: 1.4;
+    height: 100%;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #26547c;
+}
+
+/* Button Styling */
+button {
+    user-select: none;
+    font-family: 'Varela Round', 'Segoe UI', Tahoma, Geneva, sans-serif;
+    border: 0;
+    color: #fcfcfc;
+    outline: none;
+    font-size: 24px;
+    font-weight: bold;
+    background: #26547c;
+    box-shadow: 0 4px 1px #142c41;
+    border-radius: 10px;
+    line-height: 48px;
+    margin: 9px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.05s ease-in-out;
+}
+
+/* Button Active State */
+button:active,
+button.op:active,
+button.equal:active {
+    transform: translateY(5px);
+    box-shadow: 0 4px 1px #ef467f;
+}
+
+/* Operator Buttons */
+button.op {
+    background: #ffd166;
+    color: #7d7d7d;
+    box-shadow: 0 4px 1px #cc8f00;
+    line-height: 45px;
+}
+
+/* Equal Button */
+button.equal {
+    background: #06d6a0;
+    color: #fcfcfc;
+    box-shadow: 0 4px 1px #048c68;
+}
+
+/* Selected Button State */
+button.selected,
+button.selected:active {
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    font-size: 0.5rem;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+    color: #fcfcfc;
+}
+
+footer a {
+    text-decoration: none;
+    color: #ffd166;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Calculator Layout */
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+        "display display display display"
+        "AC plusminus percent divide"
+        "seven eight nine times"
+        "four five six minus"
+        "one two three plus"
+        "zero decimal C equal";
+    margin: 20px 0;
+    padding: 8px;
+    background-color: #ef467f;
+    border-radius: 10px;
+    box-shadow: 0 8px #eb184a;
+    height: 450px;
+    width: 390px;
+    min-width: 390px;
+}
+
+/* Display Styling */
+.calculator__display {
+    background-color: #26547c;
+    border-radius: 10px;
+    box-shadow: inset 0 4px 5px #900d2c;
+    color: #fcfcfc;
+    font-size: 28px;
+    height: 55px;
+    margin: 10px 10px 0;
+    padding: 12px;
+    text-align: right;
+    font-weight: 700;
+    grid-area: display;
+}
+
+/* Button Grid Areas */
+.all-clear { grid-area: AC; }
+.one { grid-area: one; }
+.two { grid-area: two; }
+.three { grid-area: three; }
+.four { grid-area: four; }
+.five { grid-area: five; }
+.six { grid-area: six; }
+.seven { grid-area: seven; }
+.eight { grid-area: eight; }
+.nine { grid-area: nine; }
+.zero { grid-area: zero; }
+.decimal { grid-area: decimal; }
+.clear { grid-area: C; }
+.plus { grid-area: plus; }
+.minus { grid-area: minus; }
+.times { grid-area: times; }
+.divide { grid-area: divide; }
+.percent { grid-area: percent; }
+.plusminus { grid-area: plusminus; }
+.equal { grid-area: equal; }
+
+/* Media Queries for Mobile Devices */
+@media (max-width: 480px) {
+    html {
+        font-size: 125%; /* Reduce font size */
+    }
+
+    button {
+        font-size: 20px; /* Smaller button font */
+        line-height: 40px; /* Adjust button height */
+        margin: 5px; /* Reduce button margin */
+    }
+
+    .calculator {
+        height: 400px; /* Adjust height for smaller screens */
+        width: 100%; /* Full width for smaller screens */
+        min-width: 320px; /* Minimum width */
+    }
+
+    .calculator__display {
+        font-size: 24px; /* Adjust display font size */
+        height: 50px; /* Adjust display height */
+        padding: 10px; /* Adjust padding */
+    }
+}
